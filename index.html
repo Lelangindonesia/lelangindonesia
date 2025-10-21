@@ -243,7 +243,6 @@ const products = {
   ]
 };
 
-// --- Render kategori ---
 const katalogList = document.getElementById('katalogList');
 catalog.forEach(cat=>{
   const el=document.createElement('div');
@@ -253,7 +252,6 @@ catalog.forEach(cat=>{
   katalogList.appendChild(el);
 });
 
-// --- Tampilkan produk ---
 function showProducts(id){
   const produkArea=document.getElementById('produkArea');
   produkArea.innerHTML='';
@@ -272,6 +270,7 @@ function showProducts(id){
     items.forEach(p=>{
       const card=document.createElement('div');
       card.className='produk-card';
+      const query=encodeURIComponent(p.name);
       card.innerHTML=`
         <img src="${p.img}" alt="${escapeHtml(p.name)}">
         <div class="produk-body">
@@ -279,7 +278,7 @@ function showProducts(id){
           <div class="desc">${escapeHtml(p.desc)}</div>
           <div class="harga">${escapeHtml(p.price)}</div>
         </div>
-        <a class="btn-info" href="#" onclick="alert('Informasi produk akan segera tersedia.');return false;">ℹ️ Detail Produk</a>
+        <a class="btn-info" href="detail.html?item=${query}">ℹ️ Detail Produk</a>
       `;
       grid.appendChild(card);
     });
