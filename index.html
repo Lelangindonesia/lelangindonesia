@@ -132,17 +132,6 @@ main{padding:28px 16px}
   font-weight:700;
   margin-bottom:10px
 }
-.btn-info{
-  display:block;
-  background:var(--blue-dark);
-  color:#fff;
-  text-decoration:none;
-  text-align:center;
-  padding:10px;
-  font-weight:600;
-  border-radius:0 0 10px 10px;
-}
-.btn-info:active{transform:translateY(1px)}
 
 .footer{
   background:var(--blue-dark);
@@ -270,7 +259,6 @@ function showProducts(id){
     items.forEach(p=>{
       const card=document.createElement('div');
       card.className='produk-card';
-      const query=encodeURIComponent(p.name);
       card.innerHTML=`
         <img src="${p.img}" alt="${escapeHtml(p.name)}">
         <div class="produk-body">
@@ -278,7 +266,6 @@ function showProducts(id){
           <div class="desc">${escapeHtml(p.desc)}</div>
           <div class="harga">${escapeHtml(p.price)}</div>
         </div>
-        <a class="btn-info" href="detail.html?item=${query}">ℹ️ Detail Produk</a>
       `;
       grid.appendChild(card);
     });
